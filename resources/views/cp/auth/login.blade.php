@@ -56,7 +56,10 @@
                 <!--<a href="{{ route('cp.auth.forgot-password') }}">Reset Password</a>-->
             </div>
         </div>
-        <button type="submit" class="btn btn-inline">Log In</button>
-        
+        <button type="submit" class="btn btn-inline">Log In  {{Auth::guard()->check()}}</button>
     </form>
+
+    <script type="text/javascript">
+        //window.location.href = "http://www.w3schools.com";
+    </script>
 @endsection

@@ -21,7 +21,7 @@ class AuthenticatedMiddleware
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->route('user.auth.login');
+                return redirect()->route('cp.auth.login');
             }
         }
 

@@ -1,11 +1,11 @@
 <?php 
 //:::::::::::::>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> User Profile
 Route::group(['as' => 'profile.', 'prefix' => 'profile'], function() {
-	Route::get('/', 		['as' => 'edit', 	'uses' => 'ProfileController@edit']);
-	Route::post('update', 	['as' => 'update', 	'uses' => 'ProfileController@update']);
-	Route::get('password', 	['as' => 'edit-password', 	'uses' => 'ProfileController@editPassword']);
-	Route::post('password/update', 	['as' => 'update-password', 	'uses' => 'ProfileController@changePassword']);
-	Route::get('logs', 				['as' => 'logs', 	'uses' => 'ProfileController@logs']);
+	Route::get('/', 				['as' => 'edit', 			'uses' => 'ProfileController@edit']);
+	Route::post('update', 			['as' => 'update', 			'uses' => 'ProfileController@update']);
+	Route::get('password', 			['as' => 'edit-password', 	'uses' => 'ProfileController@editPassword']);
+	Route::post('password/update', 	['as' => 'update-password', 'uses' => 'ProfileController@changePassword']);
+	Route::get('logs', 				['as' => 'logs', 			'uses' => 'ProfileController@logs']);
 });
 
 //:::::::::::::>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> User
@@ -25,7 +25,7 @@ Route::group(['as' => 'user.',  'prefix' => 'user'], function () {
 	Route::get('/check-system-permision', 	['as' => 'check-system-permision', 		'uses' => 'UsersController@checkPermisions']);
 
 	Route::get('/{id}/zone', 		['as' => 'zone', 			'uses' => 'UsersController@zone']);
-	Route::get('/check-zone', 	['as' => 'check-zone', 		'uses' => 'UsersController@checkZones']);
+	Route::get('/check-zone', 		['as' => 'check-zone', 		'uses' => 'UsersController@checkZones']);
 
 	
 });

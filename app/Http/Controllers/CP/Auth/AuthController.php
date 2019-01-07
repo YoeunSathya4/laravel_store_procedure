@@ -20,7 +20,7 @@ class AuthController extends Controller {
     
    
     public function login () {
-        if (!Auth::guard('user')->check()) 
+        if (!Auth::guard()->check()) 
             return view('user/auth.login');
         else 
             return redirect()->route('cp.user.profile');
@@ -30,6 +30,7 @@ class AuthController extends Controller {
 
         $password = $request->input('password');
         $username = $request->input('username');
+        
         $remember = 0;
         if($request->input('remember') == 'on'){
             $remember = 1;

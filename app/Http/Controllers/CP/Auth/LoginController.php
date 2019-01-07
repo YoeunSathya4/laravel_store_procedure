@@ -44,14 +44,19 @@ class LoginController extends Controller
     }
 
     function showLoginForm(){
-
-        return view('cp.auth.login');
+        //dd(Auth::guard()->check());
+         if (!Auth::guard()->check()) 
+            return view('cp.auth.login');
+         else 
+            return redirect()->route('cp.user.profile.edit');
     }
 
     protected function credentials(Request $request)
     {
         $credentials = $request->only($this->username(), 'password'); 
+        //dd($request->email);
         $credentials['status'] = 1; 
+
         return $credentials;
     }
 
@@ -59,6 +64,9 @@ class LoginController extends Controller
     //Create Logs
     protected function authenticated(Request $request, $user){
         //Log Information
+
+        //dd($request);
+
         $agent      = new Agent;
         $info       = $agent::showInfo();
         $ipAddress  = new IpAddress;
